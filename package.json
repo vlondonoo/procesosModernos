@@ -1,0 +1,11 @@
+{
+    "name": "procesosModernos-node-red",
+    "description": "Node-Red for plants connection",
+    "version": "0.0.18",
+    "private": false,
+    "node-red": {
+        "settings": {
+            "flowFile": "flows_APXMA0588M.local.json"
+        }
+    }
+}

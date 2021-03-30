@@ -1,0 +1,8 @@
+*.backup
+node_modules_wrong/
+node_modules/
+.eslintrc.js
+jsconfig.json
+.DS_store
+node-red-home/*
+!node-red-home/.config.json
