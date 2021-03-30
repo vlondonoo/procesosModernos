@@ -1,0 +1,848 @@
+[
+    {
+        "id": "6cc53d2b.4e3c84",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2f87bcf8.a80d24",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "371d6025.8b751",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7180d0e1.7dc37",
+        "type": "mongodb2",
+        "z": "",
+        "uri": "mongodb://ec2-54-157-157-19.compute-1.amazonaws.com:27017",
+        "name": "monitor",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "80e186e2.ac2328",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f5324085.a8c8f",
+        "type": "ui_group",
+        "name": "ejercicio01",
+        "tab": "80e186e2.ac2328",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "a44ba7a3.8c6a78",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "f1baaab5.c4a958",
+        "type": "arduino-board",
+        "device": ""
+    },
+    {
+        "id": "df7a711c.2802e",
+        "type": "comment",
+        "z": "371d6025.8b751",
+        "name": "Publico cada segundo en el dashboard la hora",
+        "info": "",
+        "x": 350,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3ed2c48c.878c6c",
+        "type": "inject",
+        "z": "371d6025.8b751",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "17bb5fed.0f79e",
+                "783064a3.3ba67c",
+                "6cf9bb54.fd7384",
+                "52300144.4f85a"
+            ]
+        ]
+    },
+    {
+        "id": "17bb5fed.0f79e",
+        "type": "ui_text",
+        "z": "371d6025.8b751",
+        "group": "f5324085.a8c8f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "EPOCH",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 600,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "783064a3.3ba67c",
+        "type": "date-infos",
+        "z": "371d6025.8b751",
+        "name": "",
+        "addDays": 0,
+        "subDays": 0,
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "378143c0.e8a2ac",
+                "1b303a40.a97ae6"
+            ]
+        ]
+    },
+    {
+        "id": "26dc9493.88536c",
+        "type": "ui_text",
+        "z": "371d6025.8b751",
+        "group": "f5324085.a8c8f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Fecha",
+        "format": "{{msg.payload.formatted}}",
+        "layout": "row-spread",
+        "x": 770,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f14dad5f.51967",
+        "type": "debug",
+        "z": "371d6025.8b751",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 750,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "378143c0.e8a2ac",
+        "type": "rbe",
+        "z": "371d6025.8b751",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload.formatted",
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "26dc9493.88536c"
+            ]
+        ]
+    },
+    {
+        "id": "6cf9bb54.fd7384",
+        "type": "moment",
+        "z": "371d6025.8b751",
+        "name": "",
+        "topic": "",
+        "input": "",
+        "inputType": "msg",
+        "inTz": "Africa/Abidjan",
+        "adjAmount": "0",
+        "adjType": "hours",
+        "adjDir": "add",
+        "format": "LLL",
+        "locale": "es-ES",
+        "output": "",
+        "outputType": "msg",
+        "outTz": "Europe/Madrid",
+        "x": 460,
+        "y": 420,
+        "wires": [
+            [
+                "b8aac9c7.eb8f18",
+                "f14dad5f.51967"
+            ]
+        ]
+    },
+    {
+        "id": "b8aac9c7.eb8f18",
+        "type": "ui_text",
+        "z": "371d6025.8b751",
+        "group": "f5324085.a8c8f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Completo",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a502cee2.feaa1",
+        "type": "comment",
+        "z": "371d6025.8b751",
+        "name": "Publico el día y solo lo mando cuando cambie",
+        "info": "",
+        "x": 550,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "56e26c97.3de824",
+        "type": "comment",
+        "z": "371d6025.8b751",
+        "name": "Muestro la fecha en formato claro",
+        "info": "",
+        "x": 510,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "52300144.4f85a",
+        "type": "debug",
+        "z": "371d6025.8b751",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 620,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1b303a40.a97ae6",
+        "type": "debug",
+        "z": "371d6025.8b751",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 750,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "27971ca9.ea3304",
+        "type": "inject",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "topic": "",
+        "payload": "{ \"id\": \"2\", \"name\": \"phTierra\" }",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 760,
+        "wires": [
+            [
+                "37c0a91.58a1556"
+            ]
+        ]
+    },
+    {
+        "id": "37c0a91.58a1556",
+        "type": "json",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 460,
+        "y": 760,
+        "wires": [
+            [
+                "f862308d.9d301",
+                "a2e14c50.c9d4b"
+            ]
+        ]
+    },
+    {
+        "id": "fba33dbe.94d0a",
+        "type": "debug",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 950,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "cc1dc469.b90058",
+        "type": "http in",
+        "z": "6cc53d2b.4e3c84",
+        "name": "add",
+        "url": "/add",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 280,
+        "y": 660,
+        "wires": [
+            [
+                "f862308d.9d301"
+            ]
+        ]
+    },
+    {
+        "id": "72b5628a.a44bfc",
+        "type": "http response",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "f862308d.9d301",
+        "type": "mongodb2 in",
+        "z": "6cc53d2b.4e3c84",
+        "service": "_ext_",
+        "configNode": "7180d0e1.7dc37",
+        "name": "",
+        "collection": "monitorCollection",
+        "operation": "insert",
+        "x": 700,
+        "y": 760,
+        "wires": [
+            [
+                "fba33dbe.94d0a",
+                "72b5628a.a44bfc"
+            ]
+        ]
+    },
+    {
+        "id": "a2e14c50.c9d4b",
+        "type": "debug",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 630,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "ca914720.599bd8",
+        "type": "http in",
+        "z": "6cc53d2b.4e3c84",
+        "name": "read",
+        "url": "/read",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "323d44b5.68ba4c"
+            ]
+        ]
+    },
+    {
+        "id": "323d44b5.68ba4c",
+        "type": "mongodb2 in",
+        "z": "6cc53d2b.4e3c84",
+        "service": "_ext_",
+        "configNode": "7180d0e1.7dc37",
+        "name": "",
+        "collection": "monitorCollection",
+        "operation": "find.toArray",
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "387d4982.69ef46",
+                "3b51aa62.e7f346"
+            ]
+        ]
+    },
+    {
+        "id": "387d4982.69ef46",
+        "type": "debug",
+        "z": "6cc53d2b.4e3c84",
+        "name": "leer",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3b51aa62.e7f346",
+        "type": "http response",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e7455dc8.ec3a",
+        "type": "http in",
+        "z": "6cc53d2b.4e3c84",
+        "name": "readOne",
+        "url": "/readOne/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "4e089b2.e33fc64"
+            ]
+        ]
+    },
+    {
+        "id": "4e089b2.e33fc64",
+        "type": "mongodb2 in",
+        "z": "6cc53d2b.4e3c84",
+        "service": "_ext_",
+        "configNode": "7180d0e1.7dc37",
+        "name": "",
+        "collection": "monitorCollection",
+        "operation": "findOne",
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "3a5fb1b4.b9c87e",
+                "f7d5c192.ddf7c"
+            ]
+        ]
+    },
+    {
+        "id": "3a5fb1b4.b9c87e",
+        "type": "debug",
+        "z": "6cc53d2b.4e3c84",
+        "name": "leer222",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 800,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f7d5c192.ddf7c",
+        "type": "http response",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "efc3aa44.a3b588",
+        "type": "http in",
+        "z": "6cc53d2b.4e3c84",
+        "name": "delete",
+        "url": "/deleteOne/:id",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 560,
+        "wires": [
+            [
+                "b1e8b154.4bc4b",
+                "d9219394.907d2"
+            ]
+        ]
+    },
+    {
+        "id": "b1e8b154.4bc4b",
+        "type": "mongodb2 in",
+        "z": "6cc53d2b.4e3c84",
+        "service": "_ext_",
+        "configNode": "7180d0e1.7dc37",
+        "name": "",
+        "collection": "monitorCollection",
+        "operation": "deleteOne",
+        "x": 590,
+        "y": 580,
+        "wires": [
+            [
+                "9994038f.e4db4",
+                "6e21f68d.4c7e98"
+            ]
+        ]
+    },
+    {
+        "id": "9994038f.e4db4",
+        "type": "debug",
+        "z": "6cc53d2b.4e3c84",
+        "name": "delete",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 850,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6e21f68d.4c7e98",
+        "type": "http response",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 850,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5bbe6758.bc14c8",
+        "type": "http in",
+        "z": "6cc53d2b.4e3c84",
+        "name": "readName",
+        "url": "/readName/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 300,
+        "y": 400,
+        "wires": [
+            [
+                "9f797d56.2e733"
+            ]
+        ]
+    },
+    {
+        "id": "9f797d56.2e733",
+        "type": "mongodb2 in",
+        "z": "6cc53d2b.4e3c84",
+        "service": "_ext_",
+        "configNode": "7180d0e1.7dc37",
+        "name": "",
+        "collection": "monitorCollection",
+        "operation": "findOne",
+        "x": 560,
+        "y": 420,
+        "wires": [
+            [
+                "e3245a4f.e31fa8",
+                "f85b0508.13dcf8"
+            ]
+        ]
+    },
+    {
+        "id": "e3245a4f.e31fa8",
+        "type": "debug",
+        "z": "6cc53d2b.4e3c84",
+        "name": "readName",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 810,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f85b0508.13dcf8",
+        "type": "http response",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e760bdf8.587db",
+        "type": "debug",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 870,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "e5cfe1d7.b2e17",
+        "type": "http in",
+        "z": "6cc53d2b.4e3c84",
+        "name": "update",
+        "url": "/update",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 940,
+        "wires": [
+            [
+                "9258d9ee.22b4c8"
+            ]
+        ]
+    },
+    {
+        "id": "814d8c8c.2ff3e",
+        "type": "http response",
+        "z": "6cc53d2b.4e3c84",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 890,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "9258d9ee.22b4c8",
+        "type": "mongodb2 in",
+        "z": "6cc53d2b.4e3c84",
+        "service": "_ext_",
+        "configNode": "7180d0e1.7dc37",
+        "name": "",
+        "collection": "monitorCollection",
+        "operation": "update",
+        "x": 630,
+        "y": 940,
+        "wires": [
+            [
+                "e760bdf8.587db",
+                "814d8c8c.2ff3e"
+            ]
+        ]
+    },
+    {
+        "id": "d9219394.907d2",
+        "type": "debug",
+        "z": "6cc53d2b.4e3c84",
+        "name": "deeee",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 580,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "64432375.98711c",
+        "type": "inject",
+        "z": "2f87bcf8.a80d24",
+        "name": "0.5s tick",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "67c25058.a611f",
+        "type": "arduino out",
+        "z": "2f87bcf8.a80d24",
+        "name": "",
+        "pin": "13",
+        "state": "OUTPUT",
+        "arduino": "f1baaab5.c4a958",
+        "x": 580.5,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ca19b593.677508",
+        "type": "function",
+        "z": "2f87bcf8.a80d24",
+        "name": "Toggle output on input",
+        "func": "\n// If it does exist make it the inverse of what it was or else initialise it to false\n// (context variables persist between calls to the function)\ncontext.level = !context.level || false;\n\n// set the payload to the level and return\nmsg.payload = context.level;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 368,
+        "y": 180,
+        "wires": [
+            [
+                "67c25058.a611f",
+                "5684c876.b07f68"
+            ]
+        ]
+    },
+    {
+        "id": "5684c876.b07f68",
+        "type": "debug",
+        "z": "2f87bcf8.a80d24",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 560,
+        "y": 240,
+        "wires": []
+    }
+]
